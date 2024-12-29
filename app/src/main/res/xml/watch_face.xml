@@ -1,0 +1,15 @@
+<wallpaper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thumbnail="@drawable/ic_launcher"
+    android:description="@string/app_name" >
+    
+    <!-- 默认表盘样式 -->
+    <meta-data
+        android:name="com.google.android.wearable.watchface.preview"
+        android:resource="@mipmap/ic_launcher" />
+
+    <!-- 可选：低功耗模式下的预览 -->
+    <!--meta-data
+        android:name="com.google.android.wearable.watchface.preview_ambient"
+        android:resource="@drawable/preview_ambient" /-->
+
+</wallpaper>

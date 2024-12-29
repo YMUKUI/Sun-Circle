@@ -1,0 +1,6 @@
+<config
+    preview="@drawable/ic_launcher"
+    name="Sun Circle"
+    watchface="com.dudu.watchface.suncircle.SunCircleWatchfaceImpl"
+    settings_activity=""
+/>

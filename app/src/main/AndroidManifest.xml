@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <service
+            android:name=".SunCircleWatchFaceService"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Sun Circle"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            
+            
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview"
+                android:resource="@mipmap/ic_launcher_round" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview_circular"
+                android:resource="@mipmap/ic_launcher_round" />
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/watch_face" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.wearableConfigurationAction"
+                android:value="androidx.wear.watchface.editor.action.WATCH_FACE_EDITOR" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.companionBuiltinConfigurationEnabled"
+                android:value="true" />
+        </service>
+    <activity
+        android:name="com.dudu.Stub"
+        android:exported="true">
+        
+        <intent-filter>
+            <action
+                android:name="com.dudu.wearlauncher.WATCHFACE" />
+            <category
+                android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
+    </application>
+</manifest>
