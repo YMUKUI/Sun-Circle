@@ -30,7 +30,7 @@ public abstract class SunCircleRender {
     private final Paint timePaint = new Paint();
     private final Paint datePaint = new Paint();
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private final Handler timeHandler =
+    /*private final Handler timeHandler =
             new Handler(Looper.getMainLooper()) {
                 @Override
                 public void handleMessage(Message msg) {
@@ -40,7 +40,7 @@ public abstract class SunCircleRender {
                         sendEmptyMessageDelayed(MSG_UPDATE_TIME, timeRefreshCycle);
                     }
                 }
-            };
+            };*/
     private float circleY; // 圆的位置
     private float screenHeight; // 屏幕高度
     private float screenWidth; // 屏幕宽度
@@ -66,9 +66,11 @@ public abstract class SunCircleRender {
         datePaint.setTypeface(dateFont);
         datePaint.setColor(Color.WHITE);
         datePaint.setTextSize(screenWidth/15f);
-        timeHandler.sendEmptyMessage(MSG_UPDATE_TIME);
+        //timeHandler.sendEmptyMessage(MSG_UPDATE_TIME);
         if (!isInAmbientMode()) handler.postDelayed(this::startAnimation, 500);
     }
+
+    
 
     public void onDraw(Canvas canvas) {
         // 清空背景
@@ -149,20 +151,18 @@ public abstract class SunCircleRender {
         }
     }
 
-    /*
-    @Override
+    
     public void onTimeTick() {
-        //super.onTimeTick();
         redraw();
-    }*/
+    }
 
     public void onAmbientModeChanged(boolean enabled) {
-        if (enabled) {
+        if (enabled) {/*
             timeRefreshCycle = 60000;
             handler.removeCallbacksAndMessages(null);
-            redraw();
+            redraw();*/
         } else {
-            timeRefreshCycle = 1000;
+            //timeRefreshCycle = 1000;
             circleY = screenHeight;
             redraw();
             handler.postDelayed(this::startAnimation, 500);
@@ -170,7 +170,7 @@ public abstract class SunCircleRender {
     }
 
     public void onDestroy() {
-        handler.removeCallbacksAndMessages(null); // 停止所有动画
-        timeHandler.removeCallbacksAndMessages(null);
+        //handler.removeCallbacksAndMessages(null); // 停止所有动画
+        //timeHandler.removeCallbacksAndMessages(null);
     }
 }

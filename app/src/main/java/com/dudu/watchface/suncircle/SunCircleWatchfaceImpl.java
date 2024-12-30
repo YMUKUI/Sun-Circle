@@ -27,6 +27,7 @@ public class SunCircleWatchfaceImpl extends WatchFace {
         }
         
     };
+    
     public SunCircleWatchfaceImpl(Context context) {
         super(context);
         setLayerType(View.LAYER_TYPE_SOFTWARE,render.blurPaint);
@@ -48,5 +49,10 @@ public class SunCircleWatchfaceImpl extends WatchFace {
         super.onDetachedFromWindow();
         render.onDestroy();
     }
-
+    @Override
+    public void updateTime() {
+        super.updateTime();
+        render.onTimeTick();
+    }
+    
 }

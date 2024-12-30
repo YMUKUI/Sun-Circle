@@ -32,6 +32,7 @@ public class SunCircleWatchFaceService extends CanvasWatchFaceService {
             }
             
         };
+        
         @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
@@ -54,12 +55,12 @@ public class SunCircleWatchFaceService extends CanvasWatchFaceService {
             } else {
                 timeHandler.removeMessages(MSG_UPDATE_TIME);
             }*/
-        }
+        }/*
         @Override
         public void onSurfaceCreated(SurfaceHolder arg0) {
             super.onSurfaceCreated(arg0);
         }
-        
+        */
         @Override
         public void onDraw(Canvas canvas, Rect bounds) {
             render.onDraw(canvas);
@@ -71,9 +72,12 @@ public class SunCircleWatchFaceService extends CanvasWatchFaceService {
         
         @Override
         public void onDestroy() {
-            super.onDestroy();
             render.onDestroy();
         }
-    
+        @Override
+        public void onTimeTick() {
+            render.onTimeTick();
+        }
+        
     }
 }
